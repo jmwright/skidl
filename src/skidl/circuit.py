@@ -956,6 +956,10 @@ class Circuit(SkidlBaseObject):
                     ref = part.ref + num_to_chars(unit.num)
                     name = part_name + "_" + str(unit.num) + "_" + unit_symtx
 
+                # Allows override of the auto-generated type name
+                if part.svg_type != None:
+                    name = part.svg_type
+
                 # Create the cell that netlistsvg uses to draw the part and connections.
                 cells[ref] = {
                     "type": name,
